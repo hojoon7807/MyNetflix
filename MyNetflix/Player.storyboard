@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_9" orientation="landscape" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,25 +16,81 @@
                         <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T0Q-4y-bTn">
-                                <rect key="frame" x="706" y="42" width="39" height="30"/>
-                                <state key="normal" title="Close"/>
-                                <connections>
-                                    <action selector="closeButtonTapped:" destination="mbs-Ed-6wm" eventType="touchUpInside" id="CXF-dh-dQv"/>
-                                </connections>
-                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HQO-lc-RpX" customClass="PlayerView" customModule="MyNetflix" customModuleProvider="target">
+                                <rect key="frame" x="44" y="0.0" width="724" height="375"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="471-7c-99z">
+                                <rect key="frame" x="44" y="0.0" width="724" height="375"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PBK-Mh-jCk">
+                                        <rect key="frame" x="342" y="167.66666666666666" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="3ad-Yq-PC2"/>
+                                            <constraint firstAttribute="height" constant="40" id="KzM-PQ-hJS"/>
+                                        </constraints>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" image="play.fill" catalog="system">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30"/>
+                                        </state>
+                                        <state key="selected" image="pause.fill" catalog="system">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="togglePlayButton:" destination="mbs-Ed-6wm" eventType="touchUpInside" id="4E1-aO-TEZ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SfI-H3-oAk">
+                                        <rect key="frame" x="664" y="16" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="Kqf-tT-PEp"/>
+                                            <constraint firstAttribute="height" constant="40" id="SOb-xZ-Agi"/>
+                                        </constraints>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" image="xmark" catalog="system">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="closeButtonTapped:" destination="mbs-Ed-6wm" eventType="touchUpInside" id="VTk-bo-YVi"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="PBK-Mh-jCk" firstAttribute="centerY" secondItem="471-7c-99z" secondAttribute="centerY" id="92l-bb-NYk"/>
+                                    <constraint firstAttribute="trailing" secondItem="SfI-H3-oAk" secondAttribute="trailing" constant="20" id="LEk-9z-95t"/>
+                                    <constraint firstItem="SfI-H3-oAk" firstAttribute="top" secondItem="471-7c-99z" secondAttribute="top" constant="16" id="cjo-i2-J1x"/>
+                                    <constraint firstItem="PBK-Mh-jCk" firstAttribute="centerX" secondItem="471-7c-99z" secondAttribute="centerX" id="yN6-Mb-mOG"/>
+                                </constraints>
+                            </view>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="Du5-Th-wYi"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="T0Q-4y-bTn" firstAttribute="leading" secondItem="Du5-Th-wYi" secondAttribute="leading" constant="662" id="6M9-Be-Rbu"/>
-                            <constraint firstItem="T0Q-4y-bTn" firstAttribute="top" secondItem="Du5-Th-wYi" secondAttribute="top" constant="42" id="vID-mj-x4M"/>
+                            <constraint firstItem="471-7c-99z" firstAttribute="top" secondItem="HQO-lc-RpX" secondAttribute="top" id="6Sy-rz-P2q"/>
+                            <constraint firstItem="Du5-Th-wYi" firstAttribute="leading" secondItem="HQO-lc-RpX" secondAttribute="leading" id="8lZ-K5-wld"/>
+                            <constraint firstItem="HQO-lc-RpX" firstAttribute="trailing" secondItem="Du5-Th-wYi" secondAttribute="trailing" id="Bte-xw-qYH"/>
+                            <constraint firstItem="471-7c-99z" firstAttribute="width" secondItem="HQO-lc-RpX" secondAttribute="width" id="Pgk-Ly-9Nf"/>
+                            <constraint firstItem="471-7c-99z" firstAttribute="height" secondItem="HQO-lc-RpX" secondAttribute="height" id="bVv-uf-sba"/>
+                            <constraint firstItem="HQO-lc-RpX" firstAttribute="top" secondItem="Dq2-Lt-FjU" secondAttribute="top" id="jKk-dq-SmL"/>
+                            <constraint firstItem="HQO-lc-RpX" firstAttribute="bottom" secondItem="Dq2-Lt-FjU" secondAttribute="bottom" id="s82-G5-lZ5"/>
+                            <constraint firstItem="471-7c-99z" firstAttribute="leading" secondItem="HQO-lc-RpX" secondAttribute="leading" id="w5X-q9-HUk"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="Du5-Th-wYi"/>
                     </view>
+                    <connections>
+                        <outlet property="controllView" destination="471-7c-99z" id="ip2-gg-GZx"/>
+                        <outlet property="playButton" destination="PBK-Mh-jCk" id="d7b-Sa-BNJ"/>
+                        <outlet property="playerView" destination="HQO-lc-RpX" id="5jR-m2-qUX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Du-VI-KnT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1.4778325123152709" y="2.3999999999999999"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="pause.fill" catalog="system" width="116" height="128"/>
+        <image name="play.fill" catalog="system" width="116" height="128"/>
+        <image name="xmark" catalog="system" width="128" height="113"/>
+    </resources>
 </document>

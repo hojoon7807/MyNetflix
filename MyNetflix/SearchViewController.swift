@@ -8,6 +8,7 @@
 
 import UIKit
 import Kingfisher
+import AVFoundation
 
 class SearchViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
@@ -41,14 +42,23 @@ extension SearchViewController: UICollectionViewDataSource{
 }
 
 extension SearchViewController: UICollectionViewDelegate{
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let movie = movies[indexPath.item]
+        let url = URL(string: movie.previewUrl)!
+        let item = AVPlayerItem(url: url)
+        
+        let storyboard = UIStoryboard(name: "Player", bundle: nil)
+        let vc = storyboard.instantiateViewController(identifier: "PlayerViewController") as! PlayerViewController
+        vc.modalPresentationStyle = .fullScreen
+        vc.player.replaceCurrentItem(with: item)
+        present(vc, animated: false, completion: nil)
+    }
 }
 
 extension SearchViewController: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let margin:CGFloat = 8
         let itemSpacing:CGFloat = 10
-        
         let width = (collectionView.bounds.width-margin*2-itemSpacing*2)/3
         let height = width*10/7
         return CGSize(width: width, height: height)
@@ -81,6 +91,7 @@ extension SearchViewController: UISearchBarDelegate {
                 self.resultCollectionView.reloadData()
             }
             print(movies.count)
+            
         }
     }
 }
