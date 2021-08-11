@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Hwh-sH-bb0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Hwh-sH-bb0">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -153,14 +153,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="oJe-uK-uHe">
-                                <rect key="frame" x="0.0" y="44" width="414" height="56"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="51"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <outlet property="delegate" destination="Lf4-yK-Bdw" id="12v-R3-ubg"/>
                                 </connections>
                             </searchBar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="SpW-0g-Lav">
-                                <rect key="frame" x="0.0" y="100" width="414" height="713"/>
+                                <rect key="frame" x="0.0" y="95" width="414" height="718"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="182-yP-OPk">
                                     <size key="itemSize" width="128" height="128"/>
@@ -250,14 +250,41 @@
                     <view key="view" contentMode="scaleToFill" id="ce7-Bh-AkS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iIY-re-vBL">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NdT-JD-uMj">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="NdT-JD-uMj" secondAttribute="bottom" id="fKc-ch-eZa"/>
+                                    <constraint firstAttribute="trailing" secondItem="NdT-JD-uMj" secondAttribute="trailing" id="gJK-tX-0sJ"/>
+                                    <constraint firstItem="NdT-JD-uMj" firstAttribute="leading" secondItem="iIY-re-vBL" secondAttribute="leading" id="hsv-aB-42s"/>
+                                    <constraint firstItem="NdT-JD-uMj" firstAttribute="top" secondItem="iIY-re-vBL" secondAttribute="top" id="iJW-xF-xrT"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="iXr-hx-Vr3"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="wWS-lo-ewv"/>
+                            </scrollView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="cEW-rw-DWC"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="NdT-JD-uMj" firstAttribute="height" secondItem="ce7-Bh-AkS" secondAttribute="height" priority="250" id="7NX-BD-spm"/>
+                            <constraint firstItem="iIY-re-vBL" firstAttribute="leading" secondItem="cEW-rw-DWC" secondAttribute="leading" id="HXO-CB-ItU"/>
+                            <constraint firstItem="cEW-rw-DWC" firstAttribute="bottom" secondItem="iIY-re-vBL" secondAttribute="bottom" id="QJS-gm-ti5"/>
+                            <constraint firstItem="NdT-JD-uMj" firstAttribute="width" secondItem="ce7-Bh-AkS" secondAttribute="width" id="cJi-pU-7Yh"/>
+                            <constraint firstItem="iIY-re-vBL" firstAttribute="top" secondItem="cEW-rw-DWC" secondAttribute="top" id="lSK-In-pbc"/>
+                            <constraint firstItem="cEW-rw-DWC" firstAttribute="trailing" secondItem="iIY-re-vBL" secondAttribute="trailing" id="zOo-mI-9OP"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="공개예정" image="play.rectangle.fill" catalog="system" id="pxU-OE-cdZ"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J18-X4-5SI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3001" y="990"/>
+            <point key="canvasLocation" x="3000.0000000000005" y="989.73214285714278"/>
         </scene>
         <!--더보기-->
         <scene sceneID="Lca-zO-Qyt">
@@ -517,7 +544,7 @@
         <image name="img_header" width="400" height="450"/>
         <image name="info.circle" catalog="system" width="128" height="121"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
-        <image name="play.fill" catalog="system" width="32" height="32"/>
+        <image name="play.fill" catalog="system" width="116" height="128"/>
         <image name="play.rectangle.fill" catalog="system" width="128" height="93"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="square.and.arrow.down.fill" catalog="system" width="121" height="128"/>
